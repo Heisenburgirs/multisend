@@ -1811,7 +1811,7 @@ export default function Home() {
                               {getFilteredAssets(input.index).length === 0 && (
                                 <div className="flex gap-[8px] p-2 min-h-[75px] items-center">
                                   <span className="text-neutral-700 overflow-hidden text-ellipsis whitespace-nowrap">
-                                    No results for {assetSearchTerms[input.index]}
+                                    No results for &ldquo;{assetSearchTerms[input.index]}&rdquo;
                                   </span>
                                 </div>
                               )}
