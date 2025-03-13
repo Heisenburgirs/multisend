@@ -1,6 +1,8 @@
 # MultiSend - Batch Asset Transfer for LUKSO
 
-![MultiSend Logo](https://www.de-folio.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.e79f2c66.png&w=32&q=75) Powered by Defolio
+![MultiSend Logo](https://www.de-folio.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.e79f2c66.png&w=32&q=75)
+
+*Powered by Defolio*
 
 🏆 **Hack the Grid Level 2 Hackathon Submission**
 
