@@ -1339,9 +1339,8 @@ export default function Home() {
           
           return updatedHoldings;
         });
-        
-        // Reset the form
-        resetAfterSuccess(true);
+
+        setTransactionStatus('success');
       } else {
         setTransactionStatus('idle');
         toast.error("Transfer Failed", {
