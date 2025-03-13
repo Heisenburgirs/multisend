@@ -1189,7 +1189,7 @@ export default function Home() {
         const { asset: holding, amount, tokenId } = assets[key];
         
         // Handle LSP7 token transfers
-        if (isLSP7(holding) && amount) {
+        if (isLSP7(holding) && amount && holding.asset && holding.asset.id) {
           // Convert amount to wei based on token decimals
           const decimals = holding.asset.decimals || 0;
           const amountInWei = parseUnits(amount, decimals);
@@ -1217,7 +1217,7 @@ export default function Home() {
         }
         
         // Handle LSP8 NFT transfers
-        if (isLSP8NFT(holding) && tokenId) {
+        if (isLSP8NFT(holding) && tokenId && holding.token && holding.token.id) {
           // Encode the transfer function call
           const data = encodeFunctionData({
             abi: LSP8_ABI,
@@ -1302,10 +1302,10 @@ export default function Home() {
           
           // Process each transferred asset
           Object.values(transactionData.assets).forEach(({ asset: holding, amount, tokenId }) => {
-            if (isLSP7(holding) && amount) {
+            if (isLSP7(holding) && amount && holding.asset && holding.asset.id) {
               // For LSP7 tokens, update the balance
               const holdingIndex = updatedHoldings.findIndex(h => 
-                h.asset.id === holding.asset.id
+                h.asset && h.asset.id === holding.asset.id
               );
               
               if (holdingIndex !== -1) {
@@ -1325,10 +1325,10 @@ export default function Home() {
                 }
               }
             } 
-            else if (isLSP8NFT(holding) && tokenId) {
+            else if (isLSP8NFT(holding) && tokenId && holding.token && holding.token.id) {
               // For LSP8 NFTs, remove them completely
               const holdingIndex = updatedHoldings.findIndex(h => 
-                h.token?.id === holding.token.id
+                h.token && h.token.id === holding.token.id
               );
               
               if (holdingIndex !== -1) {
